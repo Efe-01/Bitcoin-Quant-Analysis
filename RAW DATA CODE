@@ -1,0 +1,49 @@
+
+
+# 0) Install if not already installed (run once)
+!pip install yfinance openpyxl -q
+
+# 1) Import necessary libraries
+import yfinance as yf
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+from google.colab import files
+
+# 2) Set date range (last 90 days)
+end_date   = datetime(2025, 4, 24)
+start_date = end_date - timedelta(days=90)
+
+# 3) Get hourly BTC-USD data, only Close prices
+df = yf.download(
+    "BTC-USD",
+    start=start_date.strftime("%Y-%m-%d"),
+    end=end_date.strftime("%Y-%m-%d"),
+    period="90d",
+    interval="1h",
+    auto_adjust=True
+)[["Close"]]
+
+# 4) Calculate EMA50 and EMA100
+df["EMA50"]  = df["Close"].ewm(span=50,  adjust=False).mean()
+df["EMA100"] = df["Close"].ewm(span=100, adjust=False).mean()
+
+# 5) Calculate RSI with 14-period window
+delta     = df["Close"].diff()
+gain      = delta.clip(lower=0)
+loss      = -delta.clip(upper=0)
+avg_gain  = gain.ewm(alpha=1/14, adjust=False).mean()
+avg_loss  = loss.ewm(alpha=1/14, adjust=False).mean()
+rs        = avg_gain / avg_loss
+df["RSI"] = 100 - (100 / (1 + rs))
+
+# 6) Remove timezone info for Excel compatibility
+df.index = df.index.tz_localize(None)
+
+# 7) Make sure we have 2160 rows
+print("Row count:", len(df))
+
+# 8) Save to Excel and download the file
+filename = "btc_2160_indicators.xlsx"
+df.to_excel(filename, sheet_name="BTC_Hourly", index=True)
+files.download(filename)
