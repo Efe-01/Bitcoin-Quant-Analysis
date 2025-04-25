@@ -1,122 +1,103 @@
-# Bitcoin-Quant-Analysis
-# Bitcoin Market Analysis Project
+Bitcoin Market Analysis Project – Classic Technical Analysis Focus
+Project Overview
+In this project, I will analyze the effectiveness of classical technical indicators—specifically EMA 50, EMA 100, and RSI—in predicting Bitcoin price movements. The primary goal is to determine whether these indicators offer reliable signals for market direction and can be effectively used in trading strategies.
 
-## Project Overview
+By collecting historical Bitcoin data using the yfinance library, I aim to examine whether traditional technical analysis holds predictive value or if its perceived effectiveness is overstated. The project will explore the statistical relationships between these indicators and actual price movements over time.
 
-In this project, I will analyze Bitcoin price movements using both classic technical indicators and quantitative (quant) trading data. My goal is to determine whether quant data—such as the True Retail Ratio, Whale vs. Retail Ratio, and Top Traders' Long/Short Ratio—provides a more accurate signal for price direction compared to traditional technical indicators like EMA 50, EMA 100, and RSI.
+Objectives
+Evaluate the Effectiveness of Classic Technical Indicators
+Assess how well EMA 50, EMA 100, and RSI correlate with future Bitcoin price direction.
 
-By collecting and analyzing data over a specific period, I aim to assess how market makers influence price action and whether retail traders systematically face disadvantages in the market. Additionally, I want to investigate the true success rate of top traders and evaluate the reliability of classical technical analysis when compared with quant data, ultimately producing a complex and comprehensive analysis of market behavior. The project will utilize data from Hyblock for quant metrics and TradingView for technical indicators.
+Test the Validity of Technical Analysis
+Determine whether technical indicators offer meaningful insights or produce results no better than random chance.
 
----
+Analyze Indicator-Based Strategy Performance
+Simulate and evaluate the success rate of strategies based solely on these indicators.
 
-## Objectives
+Challenge Conventional Assumptions
+Investigate whether traders can reliably use RSI and EMAs to gain an edge in the market.
 
-1. **Compare Technical Analysis vs. Quant Data**  
-   Evaluate the effectiveness of classical technical indicators (EMA 50/100, RSI) versus quantitative trading data in predicting Bitcoin price movements.
+Motivation
+Technical analysis is widely used among retail traders and investors. However, its actual effectiveness—especially in volatile markets like cryptocurrency—is often debated. This project aims to assess whether common indicators like EMA and RSI offer genuine predictive power or are largely reactive to past price movements. By applying a data-driven approach, I hope to provide clear insights into the value of technical analysis in Bitcoin trading.
 
-2. **Analyze Market Maker Influence**  
-   Investigate how market makers may act against retail traders and whether quant data can reveal these patterns.
+Dataset
+All data will be retrieved using the yfinance Python library, and will include:
 
-3. **Evaluate Top Traders' Success Rate**  
-   Assess how often top traders' long/short positions align with accurate market direction.
+Bitcoin Price Data:
+Historical OHLCV (Open, High, Low, Close, Volume) data.
 
-4. **Identify Market Manipulation**  
-   Determine whether significant price movements align with retail trader positioning, indicating potential manipulation.
+Technical Indicators:
 
-5. **Data-Driven Strategy Development**  
-   Use insights from this study to identify potential improvements in market analysis and trading strategies.
+EMA 50 (50-day Exponential Moving Average)
 
----
+EMA 100 (100-day Exponential Moving Average)
 
-## Motivation
+RSI (Relative Strength Index)
 
-This project aims to bridge the gap between traditional technical analysis and modern quant trading approaches. Understanding the interplay between retail and whale traders, as well as the effectiveness of different market signals, can provide deeper insights into Bitcoin price action. Additionally, by analyzing real trading behavior, we can challenge the conventional wisdom of technical indicators and investigate whether market manipulation is a significant factor.
+The data will be structured and cleaned for time series and correlation analysis.
 
----
+Tools and Technologies
+Python: Core programming language for analysis
 
-## Dataset
+Pandas: Data manipulation and preprocessing
 
-I will collect data from the following sources:
+NumPy & SciPy: Statistical testing and numerical operations
 
-- **Hyblock** (Quant Data):
-  - True Retail Ratio
-  - Whale vs. Retail Ratio
-  - Top Traders' Long/Short Ratio
-- **TradingView** (Technical Indicators):
-  - EMA 50
-  - EMA 100
-  - RSI
-- **Bitcoin Price Data**: Historical price action and volume trends
+Matplotlib & Seaborn: Data visualization (line plots, histograms, correlation heatmaps)
 
-All data will be recorded and processed for trend analysis and correlation studies.
+Analysis Plan
+1. Data Collection & Preprocessing
+Use yfinance to extract historical BTC-USD data
 
----
+Calculate EMA 50, EMA 100, and RSI values
 
-## Tools and Technologies
+Align indicator values with price movement data
 
-To analyze the data, I will use:
+2. Visualization & Correlation Analysis
+Visualize indicators overlaid on price charts
 
-- **Python**: For data processing and statistical analysis
-- **Pandas**: Data manipulation and cleaning
-- **Matplotlib & Seaborn**: Data visualization (correlation heatmaps, time series, scatter plots)
-- **NumPy & SciPy**: Statistical tests and regression analysis
+Create heatmaps and scatter plots to identify relationships between indicators and price direction
 
----
+3. Hypothesis Testing
+Null Hypothesis (H₀): Classical technical indicators do not offer statistically significant signals for price direction
 
-## Analysis Plan
+Alternative Hypothesis (Hₐ): Technical indicators provide statistically meaningful signals for price movement
 
-1. **Data Collection & Preprocessing**  
-   - Extract historical data from Hyblock and TradingView.
-   - Clean and organize data into a structured format for analysis.
+Perform correlation analysis and statistical significance testing
 
-2. **Visualization & Correlation Analysis**  
-   - Compare price trends with quant metrics and technical indicators.
-   - Generate correlation heatmaps to identify key relationships.
+4. Strategy Simulation & Performance Evaluation
+Define basic trading rules based on RSI and EMA crossovers
 
-3. **Hypothesis Testing**  
-   - Test the hypothesis:
-     - **H₀**: Quant data does not offer better directional accuracy than technical indicators.
-     - **Hₐ**: Quant data provides stronger predictive power than traditional indicators.
-   - Use regression analysis to determine the most predictive factors.
+Backtest these strategies over historical data
 
-4. **Pattern Recognition & Trend Analysis**  
-   - Analyze how market makers react to retail positioning.
-   - Evaluate the success rate of top traders’ long/short positions.
-   - Investigate whether large price movements align with retail trading behavior, indicating possible market manipulation.
+Measure success rates, risk/reward ratios, and drawdowns
 
----
+Example Analysis
+EMA Cross Strategy
+Compare price performance following EMA 50 / EMA 100 crossovers
 
-## Example Analysis
+Analyze frequency of accurate trend signals vs. false positives
 
-To illustrate the approach, I will conduct the following analyses:
+RSI Overbought/Oversold Zones
+Evaluate how price behaves after entering extreme RSI levels (>70 or <30)
 
-1. **Retail vs. Whale Positioning Analysis**  
-   - Compare price movements against the True Retail Ratio and Whale vs. Retail Ratio.
-   - Identify patterns where market reversals coincide with extreme retail positioning, suggesting possible stop-loss hunting or market maker intervention.
+Track short-term returns after these signals
 
-2. **Technical Indicator vs. Quant Signal Accuracy**  
-   - Track the success rate of EMA 50/100 and RSI-based predictions versus quant-based signals (such as the Top Traders' Long/Short Ratio).
-   - Determine which approach provides more accurate trade signals over time.
+Combined Signal Analysis
+Combine RSI and EMA rules to generate confluence signals
 
-3. **Top Traders’ Long/Short Success Rate**  
-   - Analyze how often top traders' positions align with profitable market movements.
-   - Evaluate whether following top traders provides a viable trading edge.
+Assess whether multi-indicator signals improve accuracy
 
-4. **Market Manipulation Indicators**  
-   - Identify instances where significant price movements appear to be triggered by liquidation events or retail-heavy positioning.
-   - Determine if these events correlate with price trends, suggesting strategic market manipulation by whales or institutions.
+Expected Insights
+By the end of this project, I aim to answer the following:
 
----
+Do classical technical indicators reliably predict Bitcoin price direction?
 
-## Expected Insights
+Are strategies based on RSI and EMAs profitable or prone to false signals?
 
-By the end of this project, I aim to answer the following questions:
+Does traditional technical analysis have merit, or is it mostly hindsight bias?
 
-- Are quant metrics more reliable than classic technical indicators for price prediction?
-- How do market makers position themselves against retail traders?
-- How effective are top traders' long/short decisions?
-- Is there evidence of systematic market manipulation in Bitcoin trading?
-- Can a quant-based approach improve trading strategies?
+Can a simplified, data-backed strategy be formed using just these indicators?
 
-This project will provide valuable insights into Bitcoin market dynamics, helping traders better understand the forces that drive price movements. By analyzing these data points, I aim to develop a structured approach to my own trading journey, refining my methods based on data-driven insights and continuously improving my market strategies.
+This project will help clarify the real-world utility of technical analysis in Bitcoin trading and provide insights that can inform more rational, evidence-based trading decisions.
 
