@@ -4,7 +4,18 @@ In this project, I will analyze the effectiveness of classical technical indicat
 
 By collecting historical Bitcoin data using the yfinance library, I aim to examine whether traditional technical analysis holds predictive value or if its perceived effectiveness is overstated. The project will explore the statistical relationships between these indicators and actual price movements over time.
 
+🔍 Hypothesis & Thesis
+Hypothesis:
+The core hypothesis of this study is that classical technical indicators, such as EMA 50, EMA 100, and RSI, do not have a statistically significant relationship with future Bitcoin price movements. In other words, their signals are assumed to be lagging, non-predictive, and comparable to randomness. This view challenges the widespread belief in the predictive strength of technical analysis.
+
+Alternative Hypothesis:
+There exists a measurable and statistically significant relationship between one or more of the indicators (EMA 50, EMA 100, RSI) and the direction of Bitcoin prices. These indicators could potentially be used as reliable inputs for decision-making in trading strategies.
+
+Thesis Statement:
+This project aims to critically examine the predictive power of widely used classical technical indicators—EMA 50, EMA 100, and RSI—within the context of Bitcoin trading. Through statistical testing, data visualization, and backtesting strategy performance, the research seeks to uncover whether these tools truly provide an informational edge or simply reflect market behavior in hindsight. The results of this analysis may either support or refute the merit of traditional technical analysis in high-volatility, data-driven markets like cryptocurrency.
+
 🎯 Objectives
+
 Evaluate the Effectiveness of Classic Technical Indicators
 Assess how well EMA 50, EMA 100, and RSI correlate with future Bitcoin price direction.
 
@@ -23,20 +34,20 @@ Technical analysis is widely used among retail traders and investors. However, i
 📁 Dataset
 All data will be retrieved using the yfinance Python library, and will include:
 
-Bitcoin Price Data:
-Historical OHLCV (Open, High, Low, Close, Volume) data.
+Bitcoin Price Data: Historical OHLCV (Open, High, Low, Close, Volume) data.
 
 Technical Indicators:
 
-EMA 50 (50-day Exponential Moving Average)
+EMA 50 (50-period Exponential Moving Average)
 
-EMA 100 (100-day Exponential Moving Average)
+EMA 100 (100-period Exponential Moving Average)
 
 RSI (Relative Strength Index)
 
 The data will be structured and cleaned for time series and correlation analysis.
 
 🛠️ Tools and Technologies
+
 Python: Core programming language for analysis
 
 Pandas: Data manipulation and preprocessing
@@ -46,46 +57,40 @@ NumPy & SciPy: Statistical testing and numerical operations
 Matplotlib & Seaborn: Data visualization (line plots, histograms, correlation heatmaps)
 
 📊 Analysis Plan
-1. Data Collection & Preprocessing
+
+Data Collection & Preprocessing
 Use yfinance to extract historical BTC-USD data
-
 Calculate EMA 50, EMA 100, and RSI values
-
 Align indicator values with price movement data
 
-2. Visualization & Correlation Analysis
+Visualization & Correlation Analysis
 Visualize indicators overlaid on price charts
-
 Create heatmaps and scatter plots to identify relationships between indicators and price direction
 
-3. Hypothesis Testing
+Hypothesis Testing
+
 Null Hypothesis (H₀): Classical technical indicators do not offer statistically significant signals for price direction
 
 Alternative Hypothesis (Hₐ): Technical indicators provide statistically meaningful signals for price movement
-
 Perform correlation analysis and statistical significance testing
 
-4. Strategy Simulation & Performance Evaluation
+Strategy Simulation & Performance Evaluation
 Define basic trading rules based on RSI and EMA crossovers
-
 Backtest these strategies over historical data
-
 Measure success rates, risk/reward ratios, and drawdowns
 
 📈 Example Analysis
+
 EMA Cross Strategy
 Compare price performance following EMA 50 / EMA 100 crossovers
-
 Analyze frequency of accurate trend signals vs. false positives
 
 RSI Overbought/Oversold Zones
 Evaluate how price behaves after entering extreme RSI levels (>70 or <30)
-
 Track short-term returns after these signals
 
 Combined Signal Analysis
 Combine RSI and EMA rules to generate confluence signals
-
 Assess whether multi-indicator signals improve accuracy
 
 🧩 Expected Insights
