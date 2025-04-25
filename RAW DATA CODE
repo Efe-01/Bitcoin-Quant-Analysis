@@ -1,0 +1,46 @@
+!pip install yfinance openpyxl -q
+
+# 1) Gerekli kütüphaneler
+import yfinance as yf
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+from google.colab import files
+
+# 2) Tarih aralığı (son 200 gün)
+end_date   = datetime(2025, 4, 24)
+start_date = end_date - timedelta(days=200)
+
+# 3) Saatlik BTC-USD verisini çek (sadece Close)
+df = yf.download(
+    "BTC-USD",
+    start=start_date.strftime("%Y-%m-%d"),
+    end=end_date.strftime("%Y-%m-%d"),
+    period="200d",
+    interval="1h",
+    auto_adjust=True
+)[["Close"]]
+
+# 4) EMA50 ve EMA100 hesapla
+df["EMA50"]  = df["Close"].ewm(span=50,  adjust=False).mean()
+df["EMA100"] = df["Close"].ewm(span=100, adjust=False).mean()
+
+# 5) 14-periyot RSI hesapla
+delta     = df["Close"].diff()
+gain      = delta.clip(lower=0)
+loss      = -delta.clip(upper=0)
+avg_gain  = gain.ewm(alpha=1/14, adjust=False).mean()
+avg_loss  = loss.ewm(alpha=1/14, adjust=False).mean()
+rs        = avg_gain / avg_loss
+df["RSI"] = 100 - (100 / (1 + rs))
+
+# 6) Zaman dilimi bilgisini kaldır (Excel uyumluluğu)
+df.index = df.index.tz_localize(None)
+
+# 7) Satır sayısını kontrol et (yaklaşık 200*24 ≈ 4800)
+print("Row count:", len(df))
+
+# 8) Excel'e kaydet ve indir
+filename = "btc_200d_indicators.xlsx"
+df.to_excel(filename, sheet_name="BTC_Hourly", index=True)
+files.download(filename)
