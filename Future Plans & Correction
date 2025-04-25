@@ -1,4 +1,5 @@
 I recognize that our current analysis—focused mainly on indicator thresholds and their immediate impact on next-hour price moves—may still be too narrow. To tap into the market’s true dynamics, we should visualize the raw time-series data itself: think rolling heatmaps of price and volume, phase-space plots of price versus momentum, or even animated 3D charts. These approaches let us see the data’s own structure—regime shifts, clustering, and anomalies—that static summary statistics can easily obscure.
+Also maybe some data analyze parts lead false informations but like I said, I can really improved my data analysis with machine learning stratiges. 
 
 Looking ahead, combining these richer, data-driven visuals with machine-learning methods could uncover non-linear patterns or hidden market regimes that simple correlation tests miss. By broadening our toolkit in this way, we can sharpen our insights—and perhaps even revisit our p-value results—to more clearly determine whether EMA and RSI truly offer any predictive edge.
 
