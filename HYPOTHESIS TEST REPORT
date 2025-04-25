@@ -1,18 +1,19 @@
-1. Executive Summary
+1. EXECUTIVE SUMMARY
 Our study set out to test whether classical technical indicators—EMA 50, EMA 100, and RSI—offer genuine predictive power for next-hour Bitcoin price movements. After computing these indicators over ~4,800 hourly observations (last 200 days), we ran correlation tests, significance analyses, visual inspections, and strategy backtests.
 
-Correlation Analysis: All Pearson r values between indicators and future returns hovered near zero (│r│<0.05), with p-values well above 0.05.
+Correlation Analysis: All Pearson r values between indicators and future returns hovered near zero (│r│ < 0.05), with p-values well above 0.05.
 
 Indicator–Price Significance: Tests of each indicator vs. raw closing price likewise produced uniformly non-significant p-values (p≫0.05).
 
-Visual Diagnostics: Heatmaps showed no strong pairwise relationships; histograms and violin plots revealed heavy overlap between “up” and “down” sessions; hourly return box‐plots exposed no exploitable intraday bias.
+Visual Diagnostics: Heatmaps showed no strong pairwise relationships; histograms and violin plots revealed heavy overlap between “up” and “down” sessions; hourly return box-plots exposed no exploitable intraday bias.
 
 Strategy Backtests: Simple RSI threshold and EMA-crossover rules underperformed buy-and-hold on total return, Sharpe ratio, and win rate; t-tests of strategy returns vs. zero also failed to reach statistical significance.
 
 Conclusion: None of the classic indicators demonstrated reliable signals. We therefore fail to reject the null hypothesis (H₀) that EMA 50, EMA 100, and RSI carry no statistically significant predictive value for Bitcoin price direction.
 
-2. Methodology Overview
-Data Collection: Hourly BTC-USD close prices for the most recent 200 days via yfinance.
+2. METHODOLOGY OVERVIEW
+Data Collection:
+Hourly BTC-USD close prices for the most recent 200 days via yfinance.
 
 Indicator Computation:
 
@@ -22,20 +23,23 @@ RSI (14): Relative Strength Index based on upward/downward price changes.
 
 Return: Next-hour percentage change in Close.
 
-Correlation & Significance Testing: Pearson’s r & two-tailed p-values between each indicator and Return; repeated for indicator vs. raw Close price.
+Correlation & Significance Testing:
+Pearson’s r & two-tailed p-values between each indicator and Return; repeated for indicator vs. raw Close price.
 
-Visualization: Heatmaps, KDE histograms, violin + jitter by positive/negative returns, box‐plots of returns by hour, and equity curves for backtest strategies.
+Visualization:
+Heatmaps, KDE histograms, violin + jitter by positive/negative returns, box-plots of returns by hour, and equity curves for backtest strategies.
 
-Backtesting: Three naïve strategies—RSI oversold/overbought, EMA 50 crossover, EMA 100 crossover—compared with buy-and-hold; performance measured by total return, annualized Sharpe, max drawdown, win rate, and one-sample t-test p-values.
+Backtesting:
+Three naïve strategies—RSI oversold/overbought, EMA 50 crossover, EMA 100 crossover—compared with buy-and-hold; performance measured by total return, annualized Sharpe, max drawdown, win rate, and one-sample t-test p-values.
 
-3. Key Findings
+3. KEY FINDINGS
 3.1 Correlation Analysis
 
 Indicator	Pearson r vs. Return	p-value
 RSI	–0.012	0.78
 EMA 50	+0.028	0.34
 EMA 100	–0.005	0.90
-All |r| values are near zero and none reach p<0.05. Indicators show no linear relationship with next-hour returns.
+All |r| values are near zero and none reach p < 0.05. Indicators show no linear relationship with next-hour returns.
 
 3.2 Indicator–Price Significance
 
@@ -61,17 +65,24 @@ Buy & Hold	+8.2%	0.25	–18.5%	n/a	n/a
 RSI (<30/>70)	+5.1%	0.18	–20.1%	51.8%	0.22
 EMA 50 Crossover	+4.8%	0.17	–21.3%	50.3%	0.30
 EMA 100 Crossover	+5.0%	0.19	–20.7%	50.7%	0.27
-All indicator-based strategies underperformed buy-and-hold in both return and risk-adjusted terms. None achieved a statistically significant average return (all t-test p>0.05).
+All indicator-based strategies underperformed buy-and-hold in both return and risk-adjusted terms. None achieved a statistically significant average return (all t-test p > 0.05).
 
-4. Discussion & Interpretation
+4. DISCUSSION & INTERPRETATION
 Lack of Predictive Correlation: Near-zero r-values and high p-values confirm that EMA and RSI neither lead price movements nor reliably differentiate up vs. down periods.
 
 Visual Overlap: Histograms and violins show no distinct “signal zones”; indicator values under positive and negative returns are statistically indistinguishable.
 
-Strategy Underperformance: Simple rules fail to beat passive holding, and produce noisy signals (win rates ≈50%), supporting the notion that these indicators react to past price rather than forecast it.
+Strategy Underperformance: Simple rules fail to beat passive holding and produce noisy signals (win rates ≈ 50%), supporting the notion that these indicators react to past price rather than forecast it.
 
-5. Conclusion & Hypothesis Evaluation
-Based on the non-significant p-values across correlation tests (all p≫0.05), indicator–price significance checks, and backtest performance metrics (strategy p-values >0.05), we do not reject the null hypothesis (H₀):
+5. CONCLUSION & HYPOTHESIS EVALUATION
+🔍 Hypotheses
+
+Null Hypothesis (H₀): EMA 50, EMA 100, and RSI do not exhibit a statistically significant relationship with subsequent Bitcoin price movements; any apparent signal is no better than random chance.
+
+Alternative Hypothesis (Hₐ): At least one of these indicators shows measurable, statistically significant correlation with future price direction, implying genuine predictive value.
+
+Evaluation:
+Based on the non-significant p-values across correlation tests (all p≫0.05), indicator–price significance checks, and backtest performance metrics (strategy p-values > 0.05), we do not reject the null hypothesis (H₀):
 
 Classical technical indicators EMA 50, EMA 100, and RSI do not provide statistically significant predictive signals for Bitcoin price direction in hourly data.
 
