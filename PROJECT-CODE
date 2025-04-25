@@ -1,4 +1,4 @@
-# 0) Upload the Excel file to Colab
+
 from google.colab import files
 print("► Please select your Excel file (sheet='BTC_Hourly'):")
 uploaded = files.upload()
