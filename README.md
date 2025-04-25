@@ -1,14 +1,16 @@
 🧠 Bitcoin Market Analysis Project – Classical Technical Analysis Focus
-
 📌 Project Overview
 This project evaluates the predictive power of classic technical indicators—specifically EMA 50, EMA 100, and RSI—in forecasting Bitcoin price movements. By fetching hourly BTC-USD data via yfinance and computing these indicators over the most recent period, we will investigate whether their signals truly anticipate future returns or merely reflect past price action.
 
 🔍 Hypothesis & Thesis
-Null Hypothesis (H₀): EMA 50, EMA 100, and RSI do not exhibit a statistically significant relationship with subsequent Bitcoin price movements; any apparent signal is no better than random chance.
+Null Hypothesis (H₀):
+EMA 50, EMA 100, and RSI do not exhibit a statistically significant relationship with subsequent Bitcoin price movements; any apparent signal is no better than random chance.
 
-Alternative Hypothesis (Hₐ): At least one of these indicators shows measurable, statistically significant correlation with future price direction, implying genuine predictive value.
+Alternative Hypothesis (Hₐ):
+At least one of these indicators shows measurable, statistically significant correlation with future price direction, implying genuine predictive value.
 
-Thesis Statement: Through rigorous correlation testing, hypothesis testing, visual analysis, and backtesting, this study will determine if traditional technical tools provide a real information edge in high-volatility crypto markets or if they are simply lagging, hindsight-biased measures.
+Thesis Statement:
+Through rigorous correlation testing, hypothesis testing, visual analysis, and backtesting, this study will determine if traditional technical tools provide a real information edge in high-volatility crypto markets or if they are simply lagging, hindsight-biased measures.
 
 🎯 Objectives
 Assess Indicator Effectiveness
@@ -32,12 +34,12 @@ Challenge Conventional Assumptions
 Determine whether retail traders’ reliance on EMA and RSI is supported by data or driven by hindsight bias.
 
 💡 Motivation
-Technical analysis is deeply ingrained in retail trading culture, yet its actual efficacy—particularly in fast-moving markets like Bitcoin—remains debated. By applying a data-driven framework and transparent statistical methods, this project seeks to clarify whether common indicators deliver genuine foresight or simply echo price history.
+Technical analysis is deeply ingrained in retail trading culture, yet its actual efficacy—especially in fast-moving markets like Bitcoin—remains debated. By applying a data-driven framework and transparent statistical methods, this project seeks to clarify whether common indicators deliver genuine foresight or simply echo price history.
 
 📁 Dataset
-Source: yfinance library, hourly BTC-USD data.
+Source: yfinance library, hourly BTC-USD data
 
-Period: Last 200 days (≈ 4,800 hourly observations).
+Period: Last 200 days (~4,800 hourly observations)
 
 Fields:
 
@@ -64,7 +66,7 @@ matplotlib, seaborn (advanced plotting)
 
 yfinance (data retrieval)
 
-Environment: Google Colab or local Jupyter Notebook
+Environment: Google Colab or Jupyter Notebook
 
 📊 Analysis Plan
 Data Collection & Preprocessing
@@ -89,7 +91,7 @@ Equity Curves comparing strategies vs. buy-and-hold
 
 Strategy Backtesting
 
-Define simple rules (RSI thresholds, EMA crossovers), simulate trades, and compute:
+Simulate trades based on simple rules and compute:
 
 Total return
 
@@ -116,12 +118,26 @@ Measure average returns 1–5 hours after EMA 50/EMA 100 crossings; compute hit/
 
 RSI Extremes:
 
-Analyze short-term returns following RSI >70 (overbought) and <30 (oversold) signals.
+Analyze short-term returns following RSI > 70 (overbought) and < 30 (oversold) signals.
 
 Combined Signals:
 
 Test confluence strategies requiring both RSI and EMA conditions; compare accuracy against single-indicator rules.
 
+🚀 Expected Outcomes
+Statistical Correlation Table: Pearson r and p-values for each indicator vs. future returns and raw price.
+
+Correlation Heatmap: Visual overview of all pairwise relationships.
+
+Distribution & Violin Plots: Insight into indicator value distributions and their behavior under up/down movements.
+
+Hourly Returns Box Plot: Intraday volatility patterns.
+
+Indicator-Price Significance Bars: p-value bars vs. α = 0.05 to highlight non-significance.
+
+Equity Curves & Performance Metrics: Comparison of buy-and-hold vs. indicator-based strategies (total return, Sharpe, drawdown, win rate, t-test p-values).
+
+Executive Summary & Conclusion: Clear verdict on the real-world utility of EMA and RSI for Bitcoin trading, with recommendations and next steps.
 
 
 
