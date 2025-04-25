@@ -1,0 +1,73 @@
+Analysis Report: The Impact of Classical Technical Indicators on Bitcoin Prices
+Hypothesis
+"Classical technical indicators (EMA50, EMA100, and RSI) do not have a statistically significant effect or correlation with Bitcoin price movements."
+
+Data Analysis and Results
+1. Correlation Analysis
+RSI:
+
+Pearson correlation: 0.256 (p = 1.49e-33)
+
+Spearman correlation: 0.217 (p = 2.90e-24)
+
+Conclusion: RSI exhibits a weak but statistically significant positive relationship with price movements.
+
+EMA50 and EMA100:
+
+Both indicators show Pearson and Spearman correlations around -0.04, with p-values >0.05.
+
+Conclusion: No significant correlation exists between EMA indicators and price.
+
+2. OLS Regression Model
+Model Performance:
+
+R² = 0.070 (The model explains only 7% of the variance).
+
+RSI coefficient: 9.27e-05 (p = 0.000), EMA50: -5.25e-07 (p = 0.001), EMA100: 5.14e-07 (p = 0.002).
+
+Conclusion: RSI has a statistically significant positive impact on returns. While EMA coefficients are statistically significant, their practical relevance is negligible.
+
+Warning: The model shows multicollinearity (Condition No. = 1.64e+06), likely due to the inclusion of highly correlated EMAs.
+
+3. Strategy Performance
+Sharpe Ratios:
+
+RSI: -0.735, EMA50: -1.165, EMA100: -1.256.
+
+Conclusion: All strategies underperform the market, with negative risk-adjusted returns.
+
+P-Values:
+
+RSI: 0.661, EMA50: 0.488, EMA100: 0.454.
+
+Conclusion: The returns of these strategies are likely due to random chance.
+
+4. Mutual Information
+RSI: 0.055, EMA50: 0.048, EMA100: 0.055.
+
+Conclusion: Weak information transfer between indicators and returns.
+
+5. Overbought/Oversold Tests
+Overbought vs Neutral: t = 6.36 (p = 2.45e-10).
+
+Oversold vs Neutral: t = -9.60 (p = 2.46e-21).
+
+Conclusion: RSI extremes are statistically distinct from neutral conditions but fail to translate into profitable signals.
+
+Key Insights
+RSI shows a statistically significant but weak relationship with price movements. However, this does not result in profitable strategies (negative Sharpe ratio).
+
+EMA50 and EMA100 have no meaningful correlation or predictive power over Bitcoin prices.
+
+All technical strategies underperform a simple Buy & Hold approach.
+
+Multicollinearity in the regression model suggests overlapping information between EMA50 and EMA100.
+
+Conclusion
+The hypothesis is partially validated:
+
+EMA50 and EMA100 show no significant impact on prices.
+
+RSI exhibits statistical significance but lacks practical utility.
+
+Technical indicators alone are insufficient for profitable trading. They must be combined with other factors (e.g., fundamental analysis, macroeconomic data).
