@@ -1,6 +1,4 @@
 
-
-# 0) Install if not already installed (run once)
 !pip install yfinance openpyxl -q
 
 # 1) Import necessary libraries
